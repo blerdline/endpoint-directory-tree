@@ -175,6 +175,14 @@ I'll need to create a class that will represent the directory tree structure. Th
 python main.py
 ```
 
-This is a cli interface where you would enter the commands as described in the problem statement.
+This can be run as a script where the user can specify a file to read the commands from. If no file is specified, the user can enter the commands manually.
 
-EXIT to exit the program.
+### Commands
+
+The following commands are available in interactive mode:
+
+- CREATE <directory_name> - Creates a directory with the specified name.
+- MOVE <source_directory> <destination_directory> - Moves the source directory to the destination directory.
+- DELETE <directory_name> - Deletes the specified directory.
+- LIST - Lists the directories in the tree.
+- EXIT - Exits the program.
