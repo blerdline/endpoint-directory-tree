@@ -177,6 +177,10 @@ python main.py
 
 This can be run as a script where the user can specify a file to read the commands from. If no file is specified, the user can enter the commands manually.
 
+```
+Enter a filename to read commands from (or press Enter to input commands manually): <filename>(optional)
+```
+
 ### Commands
 
 The following commands are available in interactive mode:
