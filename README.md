@@ -168,3 +168,13 @@ foods
 ## Initial Thoughts on the Solution
 
 I'll need to create a class that will represent the directory tree structure. This class will have methods to create, move and delete directories. I'll also need to implement a method to list the directories in the tree. In addition, I'll need to implement a method to check if the directory exists before moving or deleting it. For listing, it seems like this will be a good use case for a recursive function to traverse the tree structure. It's late now though, so I'll start on this Monday morning.
+
+## To Run
+
+```
+python main.py
+```
+
+This is a cli interface where you would enter the commands as described in the problem statement.
+
+EXIT to exit the program.
