@@ -33,6 +33,7 @@ class FileSystem:
             current_directory.add_subdirectory(part)
             current_directory = current_directory.get_subdirectories(part)
         
+        print(f"CREATE {path}")
 
     def delete(self, path: str) -> None:
         #Split the path into parts
@@ -41,6 +42,7 @@ class FileSystem:
         # Set a parent directory to the one level above the last part of the path
         parent_directory: Directory = self._traverse_path(parts[:-1])
         
+        print(f"DELETE {path}")
         # If path does not exist print an error message
         if parent_directory is None or parts[-1] not in parent_directory.subdirectories:
             print(f"Cannot delete {path} - {'/'.join(parts[:-1])} does not exist")
@@ -48,10 +50,12 @@ class FileSystem:
         # Delete the last part of the path from the parent directory
         parent_directory.delete_subdirectory(parts[-1])
 
+
     def list(self) -> None:
         # need a recursive function to help keep the indentation consistent
         # and to print the subdirectories.  This function will be called
         # from the list method
+        print("LIST")
         self._list(self.root, 0)
 
     def _list(self, directory: Directory, level) -> None:
@@ -88,3 +92,5 @@ class FileSystem:
         destination_parent_directory.add_subdirectory(source_parts[-1])
         destination_parent_directory.subdirectories[source_parts[-1]] = directory_to_move
         source_parent_directory.delete_subdirectory(source_parts[-1])
+
+        print(f"MOVE {source} {destination}")
