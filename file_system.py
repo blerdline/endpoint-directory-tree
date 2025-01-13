@@ -39,7 +39,16 @@ class FileSystem:
         parent_directory.delete_subdirectory(parts[-1])
 
     def list(self) -> None:
-        pass
+        # need a recursive function to help keep the indentation consistent
+        # and to print the subdirectories.  This function will be called
+        # from the list method
+        self._list(self.root, 0)
+
+    def _list(self, directory: Directory, level) -> None:
+        # Print the name of the directory
+        for name in sorted(directory.subdirectories.keys()):
+            print("  " * level + name)
+            self._list(directory.get_subdirectories(name), level + 1)
 
     def move(self, source: str, destination: str) -> None:
         pass
