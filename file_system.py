@@ -23,7 +23,20 @@ class FileSystem:
         
 
     def delete(self, path: str) -> None:
-        pass
+        #Split the path into parts
+        parts: list[str] = path.split('/')
+
+        # Set a parent directory to the one level above the last part of the path
+        parent_directory: Directory = self.root
+        for part in parts[:-1]:
+            parent_directory = parent_directory.get_subdirectories(part)
+
+        # If path does not exist print an error message
+        if parent_directory is None or parts[-1] not in parent_directory.subdirectories:
+            print("Path does not exist")
+            return
+        # Delete the last part of the path from the parent directory
+        parent_directory.delete_subdirectory(parts[-1])
 
     def list(self) -> None:
         pass
