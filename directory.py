@@ -4,10 +4,12 @@ class Directory:
         self.subdirectories = {}
 
     def add_subdirectory(self, name):
-        pass
+        if name not in self.subdirectories:
+            self.subdirectories[name] = Directory(name)
 
     def delete_subdirectory(self, name):
-        pass
+        if name in self.subdirectories:
+            del self.subdirectories[name]
 
     def get_subdirectories(self, name):
-        pass
+        return self.subdirectories.get(name)
