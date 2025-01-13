@@ -43,11 +43,30 @@ and produce the following output
 ```
 CREATE fruits
 
+LIST
+fruits
+
 CREATE vegetables
+
+LIST
+fruits
+vegetables
 
 CREATE grains
 
+LIST
+fruits
+grains
+vegetables
+
+
 CREATE fruits/apples
+
+LIST
+fruits
+  apples
+grains
+vegetables
 
 CREATE fruits/apples/fuji
 
@@ -60,13 +79,57 @@ vegetables
 
 CREATE grains/squash
 
+LIST
+fruits
+  apples
+    fuji
+grains
+  squash
+vegetables
+
 MOVE grains/squash vegetables
+
+LIST
+fruits
+  apples
+    fuji
+grains
+vegetables
+  squash
 
 CREATE foods
 
+LIST
+foods
+fruits
+  apples
+    fuji
+grains
+vegetables
+  squash
+
+
 MOVE grains foods
 
+LIST
+foods
+  grains
+fruits
+  apples
+    fuji
+vegetables
+  squash
+
 MOVE fruits foods
+
+LIST
+foods
+  fruits
+    apples
+      fuji
+  grains
+vegetables
+  squash
 
 MOVE vegetables foods
 
@@ -81,6 +144,15 @@ foods
 
 DELETE fruits/apples
 Cannot delete fruits/apples - fruits does not exist
+
+LIST
+foods
+  fruits
+    apples
+      fuji
+  grains
+  vegetables
+    squash
 
 DELETE foods/fruits/apples
 
