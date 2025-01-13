@@ -1,6 +1,11 @@
 
+from file_system import FileSystem
+
+
 def main():
 
+    #Create a file system object
+    fs = FileSystem()
     while True:
         try:
             command_line = input("Enter command (or type EXIT to quit): ").strip()
@@ -21,16 +26,16 @@ def main():
 
             if command == "CREATE":
                 #Call the create function
-                pass
+                fs.create(command_parts[1])
             elif command == "DELETE":
                 #Call the delete function
-                pass
+                fs.delete(command_parts[1])
             elif command == "LIST":
                 #Call the list function
-                pass
+                fs.list()
             elif command == "MOVE":
                 #Call the move function
-                pass
+                fs.move(command_parts[1], command_parts[2])
             else:
                 print("Invalid command. Please try again.")
         except Exception as e:
